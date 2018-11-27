@@ -2,11 +2,16 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-const ButtonBox = styled.TouchableOpacity.attrs({ activeOpacity: 0.8 })`
+/* https://kylewbanks.com/blog/react-native-tutorial-part-2-designing-a-calculator */
+
+/* https://github.com/styled-components/styled-components/issues/149 */
+const ButtonBox = styled.TouchableHighlight.attrs({
+  underlayColor: '#193441',
+})`
   flex: 1;
   align-items: center;
   justify-content: center;
-  border-width: 1.0;
+  border-width: 0.5;
   border-color: #91AA9D;
 `;
 
@@ -16,8 +21,12 @@ const ButtonText = styled.Text`
   color: white;
 `;
 
+handleButtonPress = (value) => {
+  
+};
+
 export default Button = ({text}) => (
-  <ButtonBox>
+  <ButtonBox onPress={() => handleButtonPress()}>
     <ButtonText>{text}</ButtonText>
   </ButtonBox>
 );
