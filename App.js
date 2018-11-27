@@ -4,32 +4,16 @@
  */
 
 import React from 'react';
-import { Container, Input, Keypad, Button, ButtonRow } from './components';
+import { Container, Input, Keypad, ButtonRow } from './components';
 
 const App = () => (
   <Container>
     <Input>123456</Input>
     <Keypad>
-      <ButtonRow>
-        <Button text="1" /> 
-    	<Button text="2" />
-    	<Button text="3" /> 
-      </ButtonRow>
-      <ButtonRow>
-        <Button text="4" />
-        <Button text="5" />
-        <Button text="6" />
-      </ButtonRow>
-      <ButtonRow>
-        <Button text="7" />
-        <Button text="8" />
-        <Button text="9" />
-      </ButtonRow>
-      <ButtonRow>
-        <Button text="0" />
-        <Button text="Clear" />
-        <Button text="Go" />
-      </ButtonRow>
+      <ButtonRow keys={['1','2','3']} />
+      <ButtonRow keys={['4','5','6']} />
+      <ButtonRow keys={['7','8','9']} />
+      <ButtonRow keys={['0','Clear','Go']} />
     </Keypad>
   </Container>
 );
