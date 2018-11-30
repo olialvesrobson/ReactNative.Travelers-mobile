@@ -22,7 +22,7 @@ class App extends React.Component {
     if (value === 'Clear') {
       number = Math.floor(number / 10);
       this.setState({ number });
-    } else if (value != 'Go') {
+    } else if (value != 'Go' && number<1000000) {
       number += value;
       this.setState({ number });
     }
