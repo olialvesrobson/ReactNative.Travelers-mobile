@@ -5,3 +5,4 @@ export { default as Header } from './Header';
 export { default as Keypad } from './Keypad';
 export { default as Button } from './Button';
 export { default as ButtonRow } from './ButtonRow';
+export { default as Processing } from './Processing';

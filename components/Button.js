@@ -19,10 +19,10 @@ const ButtonBox = styled.TouchableHighlight.attrs({
 const ButtonText = styled.Text`
   font-size: 30;
   font-family: Orbitron-Bold;
-  color: ${props => props.text=="Go" ? "green" : "orange"};
+  color: ${props => (props.text === 'Go' ? 'green' : 'orange')};
 `;
 
-export default Button = ({func,text}) => (
+export default ({ func, text }) => (
   <ButtonBox onPress={() => func(text)}>
     <ButtonText text={text}>{text}</ButtonText>
   </ButtonBox>

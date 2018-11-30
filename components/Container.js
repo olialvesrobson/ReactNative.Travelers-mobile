@@ -1,6 +1,6 @@
 
 import styled from 'styled-components/native';
 
-export default Container = styled.View`
+export default styled.View`
   flex: 1;
 `;

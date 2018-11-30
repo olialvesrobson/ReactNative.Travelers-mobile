@@ -8,7 +8,7 @@ const RowBox = styled.View`
   flex-direction: row;
 `;
 
-export default ButtonRow = ({func,keys}) => (
+export default ({ func, keys }) => (
   <RowBox>
     { /* https://stackoverflow.com/a/32157488 */ }
     {keys.map(key => (
