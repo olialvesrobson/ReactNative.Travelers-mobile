@@ -3,37 +3,37 @@
  * https://github.com/kewp/prime-components
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Container, Header, Input, Keypad, ButtonRow
 } from './components';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { number: 123456 };
+type State = {
+  number: number;
+};
 
-    // This binding is necessary to make `this` work in the callback
-    this.press = this.press.bind(this);
-  }
+class App extends Component<{}, State> {
+  state = {
+    number: 123456
+  };
 
   press = (value) => {
     let { number } = this.state;
     if (value === 'Clear') {
       number = Math.floor(number / 10);
       this.setState({ number });
-    } else if (value != 'Go' && number<1000000) {
+    } else if (value !== 'Go' && number < 1000000) {
       number += value;
       this.setState({ number });
     }
   };
 
   render() {
-    const { number } = this.state;
+    const { state } = this;
     return (
       <Container>
         <Header>Prime Components</Header>
-        <Input>{number}</Input>
+        <Input>{state.number}</Input>
         <Keypad>
           <ButtonRow func={this.press} keys={['1', '2', '3']} />
           <ButtonRow func={this.press} keys={['4', '5', '6']} />
