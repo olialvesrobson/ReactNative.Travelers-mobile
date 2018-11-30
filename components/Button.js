@@ -12,13 +12,13 @@ const ButtonBox = styled.TouchableHighlight.attrs({
   align-items: center;
   justify-content: center;
   border-width: 0.5;
-  border-color: #91AA9D;
+  border-color: white;
 `;
 
 const ButtonText = styled.Text`
-  font-size: 22;
-  font-weight: bold;
-  color: white;
+  font-size: 30;
+  font-family: Orbitron-Bold;
+  color: orange;
 `;
 
 handleButtonPress = (value) => {

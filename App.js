@@ -4,10 +4,11 @@
  */
 
 import React from 'react';
-import { Container, Input, Keypad, ButtonRow } from './components';
+import { Container, Header, Input, Keypad, ButtonRow } from './components';
 
 const App = () => (
   <Container>
+    <Header>Prime Components</Header>
     <Input>123456</Input>
     <Keypad>
       <ButtonRow keys={['1','2','3']} />
