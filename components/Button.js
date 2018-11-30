@@ -11,8 +11,9 @@ const ButtonBox = styled.TouchableHighlight.attrs({
   flex: 1;
   align-items: center;
   justify-content: center;
-  border-width: 0.5;
-  border-color: white;
+  background-color: rgb(39, 41, 43);
+  border-radius: 10px;
+  margin: 5px;
 `;
 
 const ButtonText = styled.Text`
