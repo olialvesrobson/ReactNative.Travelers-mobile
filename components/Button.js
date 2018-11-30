@@ -22,12 +22,8 @@ const ButtonText = styled.Text`
   color: ${props => props.text=="Go" ? "green" : "orange"};
 `;
 
-handleButtonPress = (value) => {
-alert(value);  
-};
-
-export default Button = ({text}) => (
-  <ButtonBox onPress={() => handleButtonPress(text)}>
+export default Button = ({func,text}) => (
+  <ButtonBox onPress={() => func(text)}>
     <ButtonText text={text}>{text}</ButtonText>
   </ButtonBox>
 );
