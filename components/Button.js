@@ -23,11 +23,11 @@ const ButtonText = styled.Text`
 `;
 
 handleButtonPress = (value) => {
-  
+alert(value);  
 };
 
 export default Button = ({text}) => (
-  <ButtonBox onPress={() => handleButtonPress()}>
+  <ButtonBox onPress={() => handleButtonPress(text)}>
     <ButtonText text={text}>{text}</ButtonText>
   </ButtonBox>
 );
