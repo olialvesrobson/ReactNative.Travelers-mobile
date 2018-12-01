@@ -43,7 +43,7 @@ class App extends Component {
       this.setState({ number });
     } else if (value === 'Go') {
       this.setState({ processing: true });
-      let factors = this.getPrimes(number);
+      const factors = this.getPrimes(number);
       this.setState({ running: false });
       this.setState({ factors });
     } else if (value === 'Back') {
