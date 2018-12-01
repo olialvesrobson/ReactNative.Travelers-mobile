@@ -8,14 +8,6 @@ import {
   Container, Header, Input, Processing, Keypad, ButtonRow
 } from './components';
 
-/*
-type State = {
-  number: number;
-  nums: Array;
-  running: boolean;
-};
-*/
-
 class App extends Component {
   state = {
     number: 123456,
