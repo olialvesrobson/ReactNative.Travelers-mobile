@@ -10,13 +10,35 @@ import {
 
 type State = {
   number: number;
-  processing: boolean;
+  nums: Array;
+  running: boolean;
 };
 
 class App extends Component<{}, State> {
   state = {
     number: 123456,
-    processing: false
+    factors: [],
+    processing: false,
+    running: false
+  };
+
+  getPrimes = (N) => {
+    const factors = [];
+    let num = N;
+    while (num % 2 === 0) {
+      factors.push({ key: '2' });
+      num /= 2;
+    }
+    let i;
+    for (i = 3; i <= Math.floor(Math.sqrt(num)); i += 2) {
+      while (num % i === 0) {
+        factors.push({ key: `${i}` });
+        num /= i;
+      }
+    }
+    if (num > 1) { factors.push({ key: `${num}` }); }
+    this.setState({ running: false });
+    this.setState({ factors });
   };
 
   press = (value) => {
@@ -24,11 +46,14 @@ class App extends Component<{}, State> {
     if (value === 'Clear') {
       number = Math.floor(number / 10);
       this.setState({ number });
-    } else if (value !== 'Go' && number < 1000000) {
-      number += value;
+    } else if (value !== 'Go' && value !== 'Back' && number < 1000000) {
+      if (number === 0) number = value; else number += value;
       this.setState({ number });
     } else if (value === 'Go') {
       this.setState({ processing: true });
+      this.getPrimes(number);
+    } else if (value === 'Back') {
+      this.setState({ processing: false });
     }
   };
 
@@ -39,7 +64,7 @@ class App extends Component<{}, State> {
         <Header>Prime Components</Header>
         <Input>{state.number}</Input>
         {state.processing ? (
-          <Processing />
+          <Processing running={state.running} factors={state.factors} press={this.press} />
         ) : (
           <Keypad>
             <ButtonRow func={this.press} keys={['1', '2', '3']} />
