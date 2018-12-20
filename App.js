@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import {
-  Container, Header, Input, Processing, Keypad, ButtonRow
+  Container, Header, Input, Processing, Keypad, ButtonRow, Login
 } from './components';
 
 class App extends Component {
@@ -13,7 +13,8 @@ class App extends Component {
     number: 123456,
     factors: [],
     processing: false,
-    running: false
+    running: false,
+    loggedin: false
   };
 
   getPrimes = (N) => {
@@ -57,6 +58,11 @@ class App extends Component {
       <Container>
         <Header>Prime Components</Header>
         <Input>{state.number}</Input>
+        {state.loggedin ? (
+          <Login text="Logout" />
+        ) : (
+          <Login text="Login" />
+        )}
         {state.processing ? (
           <Processing running={state.running} factors={state.factors} press={this.press} />
         ) : (
