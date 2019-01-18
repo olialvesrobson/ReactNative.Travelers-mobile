@@ -41,7 +41,7 @@ export default ({ running, factors, press }) => (
     )}
     <List
       data={factors}
-      renderItem={({ item }) => <Item>{item.key}</Item>}
+      renderItem={({ item }) => <Item key={item.key}>{item.value}</Item>}
     />
     {!running && (
       <Button func={() => press('Back')} text="Back" />

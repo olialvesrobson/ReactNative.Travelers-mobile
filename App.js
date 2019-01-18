@@ -63,17 +63,20 @@ revoke = async () => {
   getPrimes = (N) => {
     const factors = [];
     let num = N;
+    let key = 0;
     while (num % 2 === 0) {
-      factors.push({ key: '2' });
+      factors.push({ value:'2', key: `prime_${key}` });
+      key++;
       num /= 2;
     }
     let i; for (i = 3; i <= Math.floor(Math.sqrt(num)); i += 2) {
       while (num % i === 0) {
-        factors.push({ key: `${i}` });
+        factors.push({ value: `${i}`, key: `prime_${key}` });
+        key++;
         num /= i;
       }
     }
-    if (num > 1) { factors.push({ key: `${num}` }); }
+    if (num > 1) { factors.push({ value: `${num}`, key: `prime_${key}` }); }
     return factors;
   };
 
@@ -85,7 +88,7 @@ revoke = async () => {
     } else if (value !== 'Go' && value !== 'Back' && number < 1000000) {
       if (number === 0) number = value; else number += value;
       this.setState({ number });
-    } else if (value === 'Go') {
+    } else if (value === 'Go' && number > 1) {
       this.setState({ processing: true });
       const factors = this.getPrimes(number);
       this.setState({ running: false });

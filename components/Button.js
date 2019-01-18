@@ -5,9 +5,7 @@ import styled from 'styled-components/native';
 /* https://kylewbanks.com/blog/react-native-tutorial-part-2-designing-a-calculator */
 
 /* https://github.com/styled-components/styled-components/issues/149 */
-const ButtonBox = styled.TouchableHighlight.attrs({
-  underlayColor: '#193441',
-})`
+const ButtonBox = styled.TouchableOpacity`
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -23,7 +21,7 @@ const ButtonText = styled.Text`
 `;
 
 export default ({ func, text }) => (
-  <ButtonBox onPress={() => func(text)}>
+  <ButtonBox onPressIn={() => func(text)}>
     <ButtonText text={text}>{text}</ButtonText>
   </ButtonBox>
 );
